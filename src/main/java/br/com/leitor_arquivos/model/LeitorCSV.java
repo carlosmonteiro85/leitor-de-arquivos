@@ -15,11 +15,10 @@ public class LeitorCSV {
 		try {
 
 			br = new BufferedReader(new FileReader(enderecoCsv));
+			
 			while ((linha = br.readLine()) != null) {
-
 				//as posições do arrey mostra cada coluna do documento CSV
 				String[] arrey = linha.split(csvDivisor);
-				
 				for(int i = 0; i < arrey.length; i++) {
 					//Imprimindo todas as colunas
 						System.out.println("Conteudo Arrey: " + arrey[i]);
