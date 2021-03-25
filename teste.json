@@ -1,0 +1,62 @@
+[
+  {
+    "id": "771",
+    "nome": "Décio Rocha - Administrador",
+    "apelido": "admin",
+    "mostraApelido": "1",
+    "estado": "10016",
+    "cidade": "2850",
+    "endereco": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "contatos": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "id": "772",
+    "nome": "Décio Luiz Rocha",
+    "apelido": "deciorocha",
+    "mostraApelido": "1",
+    "estado": "10016",
+    "cidade": "3147",
+    "endereco": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "contatos": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "id": "774",
+    "nome": "Alexandre Cruzeiro",
+    "apelido": "alexandrecruzeiro",
+    "mostraApelido": "1",
+    "estado": "10016",
+    "cidade": "3147",
+    "endereco": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "contatos": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ]
+   }
+]

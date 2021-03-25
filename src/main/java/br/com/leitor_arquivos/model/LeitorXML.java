@@ -2,72 +2,59 @@ package br.com.leitor_arquivos.model;
 
 import java.io.IOException;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
 
-import org.xml.sax.Attributes;
-import org.xml.sax.InputSource;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
 
-public class LeitorXML extends DefaultHandler {
+import br.com.leitor_arquivos.model.utilizações.Produto;
 
-	// armazena tudo que foi lido até o momento do XML
-	private StringBuffer estruturaLida = new StringBuffer(200);
-	// armazena o que esta sendo lido do XML
-	private StringBuffer valorAtual = new StringBuffer(100);
+public class LeitorXML {
 
-	public void run(String enderecoXML) {
-
+	public void lendoXML(String enderecoXML) {
+		
+		DocumentBuilderFactory fabrica = DocumentBuilderFactory.newInstance();
 		try {
 
-			SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
-//           InputSource input = new InputSource("/home/ronaldo/Documentos/receita.xml");
-			InputSource input = new InputSource(enderecoXML);
-			parser.parse(input, new LeitorXML());
+			//cria uma fabrica de cocumentos
+			DocumentBuilder builder = fabrica.newDocumentBuilder();
+			//passa para o documento o endereço do arquivo xml
+			Document document = builder.parse(enderecoXML);
+			// Recebe a tag específica do XML que retornara neste caso uma lita de produtos do xml
+			NodeList produtos = document.getElementsByTagName("produto");
+
+			//itera com varios produtos recebidos do xml
+			for (int i = 0; i < produtos.getLength(); i++) {
+				
+				Element produto = (Element) produtos.item(i);
+				//acesso o nome da tag nome, escolho o item 0 para acessar o nome de cada produto
+				String nome = produto.getElementsByTagName("nome").item(0).getTextContent();
+				//acessa a tag preco e obtem todos os preços dos produtos
+				double preco = Double.parseDouble(produto.getElementsByTagName("preco").item(0).getTextContent());
+				//instancia um produto e seta as insformações do xml em um objeto da Classe Produto
+				Produto prod = new Produto(nome, preco);
+				
+				System.out.println(prod.getNome());
+				System.out.println(prod.getPreco());
+				
+			}
 
 		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
-		} catch (SAXException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
+		} catch (SAXException e) {
+			e.printStackTrace();
 		}
-
-	}
-	// Logica fficará aqui
-	public void startDocument() {
-		System.out.print("Iniciando leitura XML ...");
+		
+		
+		
 	}
 
-	public void endDocument() {
-		System.out.print("\n Finalizando leitura XML...");
-	}
-
-	public void characters(char[] ch, int start, int length) {
-
-		valorAtual.append(ch, start, length);
-
-	}
-
-	public void endElement(String uri, String localName, String tag) {
-
-		System.out.print(valorAtual.toString().trim());
-		valorAtual.delete(0, valorAtual.length());
-
-		estruturaLida.delete(estruturaLida.length() - tag.length() - 1, estruturaLida.length());
-
-	}
-
-	public void startElement(String uri, String localName, String tag, Attributes atributos) {
-
-		estruturaLida.append("/" + tag);
-
-		System.out.print("\n<" + estruturaLida.substring(1) + (atributos.getLength() != 0 ? " +ATRIBUTOS" : "") + ">");
-
-		valorAtual.delete(0, valorAtual.length());
-
-	}
 
 }
