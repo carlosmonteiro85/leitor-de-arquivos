@@ -9,13 +9,10 @@ public class LeitorCSV {
 
 	public void lendoCSV(String enderecoCsv) {
 
-		BufferedReader br = null;
 		String linha = "";
 		String csvDivisor = ",";
 
-		try {
-
-			br = new BufferedReader(new FileReader(enderecoCsv));
+		try (BufferedReader br = new BufferedReader(new FileReader(enderecoCsv))) {
 
 			while ((linha = br.readLine()) != null) {
 				// as posições do arrey mostra cada coluna do documento CSV
@@ -32,14 +29,6 @@ public class LeitorCSV {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
-			if (br != null) {
-				try {
-					br.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
+		} 
 	}
 }
