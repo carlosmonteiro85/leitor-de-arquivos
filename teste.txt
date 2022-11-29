@@ -1,0 +1,4 @@
+nome      preco  
+notbook   10.00  
+celular   100.00 
+pc        50.00  

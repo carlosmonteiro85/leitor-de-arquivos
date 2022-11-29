@@ -1,4 +1,4 @@
-package br.com.leitor_arquivos.model;
+package br.com.leitorarquivos.model;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

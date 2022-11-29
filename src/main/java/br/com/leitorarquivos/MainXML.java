@@ -1,6 +1,6 @@
-package br.com.leitor_arquivos;
+package br.com.leitorarquivos;
 
-import br.com.leitor_arquivos.model.LeitorXML;
+import br.com.leitorarquivos.model.LeitorXML;
 
 public class MainXML {
 

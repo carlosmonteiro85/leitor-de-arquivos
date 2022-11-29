@@ -1,4 +1,4 @@
-package br.com.leitor_arquivos.model.utilizações;
+package br.com.leitorarquivos.model.utilizacoes;
 
 public class Usuario {
 	

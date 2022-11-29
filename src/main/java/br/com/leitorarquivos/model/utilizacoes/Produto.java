@@ -1,4 +1,4 @@
-package br.com.leitor_arquivos.model.utilizações;
+package br.com.leitorarquivos.model.utilizacoes;
 
 public class Produto {
 
@@ -25,5 +25,11 @@ public class Produto {
         this.nome = nome;
         this.preco = preco; 
     }
+
+	@Override
+	public String toString() {
+		return "Produto [nome=" + nome + ", preco=" + preco + "]";
+	}
+ 
     
 }

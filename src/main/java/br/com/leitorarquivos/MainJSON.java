@@ -1,6 +1,6 @@
-package br.com.leitor_arquivos;
+package br.com.leitorarquivos;
 
-import br.com.leitor_arquivos.model.LeitorJSON;
+import br.com.leitorarquivos.model.LeitorJSON;
 
 public class MainJSON {
 

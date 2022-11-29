@@ -1,4 +1,4 @@
-package br.com.leitor_arquivos.model;
+package br.com.leitorarquivos.model;
 
 import java.io.IOException;
 
@@ -11,7 +11,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import br.com.leitor_arquivos.model.utilizações.Produto;
+import br.com.leitorarquivos.model.utilizacoes.Produto;
 
 public class LeitorXML {
 
